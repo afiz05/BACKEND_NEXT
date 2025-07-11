@@ -77,6 +77,17 @@ export const legacyResponse = (
   });
 };
 
+export const inquiryResponse = (
+  res,
+  result = [],
+  message = null,
+  statusCode = 200
+) => {
+  return res.status(statusCode).json({
+    data: result,
+  });
+};
+
 // ✅ Helper untuk error response kompatibel dengan backend lama
 export const legacyErrorResponse = (res, error = "Error", statusCode = 400) => {
   return res.status(statusCode).json({

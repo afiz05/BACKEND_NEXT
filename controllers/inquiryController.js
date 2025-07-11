@@ -2,6 +2,7 @@ import {
   successResponse,
   errorResponse,
   legacyResponse,
+  inquiryResponse,
 } from "../utils/helpers.js";
 import { db } from "../config/database-multi.js";
 import { decryptData } from "../utils/decrypt.js";
@@ -34,7 +35,7 @@ export class InquiryController {
         }),
       ]);
 
-      return legacyResponse(res, results);
+      return inquiryResponse(res, results);
     } catch (error) {
       const errorMessage = error.original
         ? error.original.sqlMessage
