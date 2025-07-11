@@ -1,0 +1,47 @@
+{
+  "apps": [
+    {
+      "name": "sintesa-backend-windows",
+      "script": "index.js",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 8080,
+        "UV_THREADPOOL_SIZE": 16,
+        "NODE_OPTIONS": "--max-old-space-size=4096 --optimize-for-size"
+      },
+      "env_development": {
+        "NODE_ENV": "development",
+        "PORT": 8080,
+        "UV_THREADPOOL_SIZE": 8
+      },
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "error_file": ".\\logs\\err.log",
+      "out_file": ".\\logs\\out.log",
+      "log_file": ".\\logs\\combined.log",
+      "pid_file": ".\\logs\\sintesa-backend.pid",
+      "time": true,
+      "max_memory_restart": "2G",
+      "node_args": "--max-old-space-size=4096 --optimize-for-size",
+      "watch": false,
+      "ignore_watch": ["node_modules", "logs", "uploads"],
+      "autorestart": true,
+      "max_restarts": 5,
+      "min_uptime": "30s",
+      "restart_delay": 5000,
+      "kill_timeout": 5000,
+      "listen_timeout": 8000,
+      "merge_logs": true,
+      "log_type": "json",
+      "instance_var": "INSTANCE_ID",
+      "windowsHide": true,
+      "source_map_support": false,
+      "disable_source_map_support": true,
+      "combine_logs": true,
+      "cron_restart": "0 2 * * *",
+      "vizion": false,
+      "pmx": false
+    }
+  ]
+}

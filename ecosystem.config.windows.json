@@ -1,0 +1,52 @@
+{
+  "apps": [
+    {
+      "name": "sintesa-backend",
+      "script": "index.js",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 8080,
+        "UV_THREADPOOL_SIZE": 128,
+        "NODE_OPTIONS": "--max-old-space-size=6144 --max-http-header-size=32768"
+      },
+      "env_development": {
+        "NODE_ENV": "development",
+        "PORT": 8080,
+        "UV_THREADPOOL_SIZE": 64
+      },
+      "env_windows": {
+        "NODE_ENV": "production",
+        "PORT": 8080,
+        "UV_THREADPOOL_SIZE": 128,
+        "NODE_OPTIONS": "--max-old-space-size=6144 --max-http-header-size=32768 --optimize-for-size"
+      },
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "error_file": "./logs/err.log",
+      "out_file": "./logs/out.log",
+      "log_file": "./logs/combined.log",
+      "time": true,
+      "max_memory_restart": "2G",
+      "node_args": "--max-old-space-size=6144 --max-http-header-size=32768",
+      "watch": false,
+      "ignore_watch": ["node_modules", "logs", "uploads", "public/uploads"],
+      "autorestart": true,
+      "max_restarts": 5,
+      "min_uptime": "30s",
+      "restart_delay": 5000,
+      "kill_timeout": 10000,
+      "listen_timeout": 10000,
+      "increment_var": "PORT",
+      "merge_logs": true,
+      "log_type": "json",
+      "vizion": false,
+      "pmx": false,
+      "source_map_support": false,
+      "instance_var": "INSTANCE_ID",
+      "windowsHide": true,
+      "cron_restart": "0 3 * * *",
+      "disable_source_map_support": true
+    }
+  ]
+}

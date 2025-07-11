@@ -1,0 +1,42 @@
+{
+  "apps": [
+    {
+      "name": "sintesa-backend",
+      "script": "index.js",
+      "instances": 8,
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 8080,
+        "UV_THREADPOOL_SIZE": 128
+      },
+      "env_development": {
+        "NODE_ENV": "development",
+        "PORT": 8080,
+        "UV_THREADPOOL_SIZE": 64
+      },
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "error_file": "./logs/err.log",
+      "out_file": "./logs/out.log",
+      "log_file": "./logs/combined.log",
+      "time": true,
+      "max_memory_restart": "1.5G",
+      "node_args": "--max-old-space-size=6144 --max-http-header-size=32768",
+      "watch": false,
+      "ignore_watch": ["node_modules", "logs", "uploads"],
+      "autorestart": true,
+      "max_restarts": 10,
+      "min_uptime": "10s",
+      "restart_delay": 4000,
+      "kill_timeout": 5000,
+      "listen_timeout": 3000,
+      "increment_var": "PORT",
+      "merge_logs": true,
+      "log_type": "json",
+      "vizion": false,
+      "pmx": false,
+      "source_map_support": false,
+      "instance_var": "INSTANCE_ID"
+    }
+  ]
+}
