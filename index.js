@@ -26,6 +26,7 @@ import { errorHandler, logAktivitas } from "./middleware/auth.js";
 
 // Import routes configuration
 import { setupApiRoutes } from "./routes/index.js";
+// Load environment variables
 
 // Load environment variables
 dotenv.config();
